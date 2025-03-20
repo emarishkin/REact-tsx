@@ -30,6 +30,16 @@ const AppHeader:FC = () => {
     <SyncOutlined spin />
     <SmileOutlined rotate={180} />
     <LoadingOutlined />
+    <IconFont type="icon-tuichu" />
+    <IconFont type="icon-facebook" style={{ color: '#1877F2' }} />
+    <IconFont type="icon-twitter" />
+    <HomeOutlined />
+    <SettingFilled />
+    <SmileOutlined />
+    <SyncOutlined spin />
+    <SmileOutlined rotate={180} />
+    <LoadingOutlined />
+    
   </Space>
 
 
