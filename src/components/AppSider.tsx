@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Layout } from 'antd';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { Card,Statistic,List,Typography,Spin } from 'antd';
+import { Card,Statistic,List,Spin } from 'antd';
 import { fakeCryptoAssets, fakefetchCrypto } from "../Api";
 import { IAssets, ICrypto } from "../dataTypes";
 const siderStyle: React.CSSProperties = {
@@ -9,19 +9,12 @@ const siderStyle: React.CSSProperties = {
  height:'1vh-120'
 };
 
-const data = [
-  'Racing car sprays burning fuel into crowd.',
-  'Japanese princess to wed commoner.',
-  'Australian walks 100km after outback crash.',
-  'Man charged over missing wedding girl.',
-  'Los Angeles battles huge wildfires.',
-];
 
 
 const AppSider:FC = () => {
 
   const [loading,setLoading] = useState<boolean>(false)
-  const [,setCrypto] = useState<ICrypto[]>([])
+  const [crypto,setCrypto] = useState<ICrypto[]>([])
   const [assets,setAssets] = useState<IAssets[]>([])
 
 useEffect(()=>{
@@ -33,7 +26,7 @@ async function preload(){
 setAssets(assets.map((asset)=>{
   const coin:any = crypto.find((c)=>c.id === asset.id)
   return{
-   
+   totalProfit: asset.price + coin.price,
     ...asset
   }
 }))
@@ -49,11 +42,11 @@ if (loading){
 
     return(
      <Layout.Sider width="25%" style={siderStyle}>
-        {assets.map((asset)=>(
+        {assets.map(asset=>(
           <Card  style={{ width: 400,marginBottom:'10px' }}>
           <Statistic 
             title={asset.id}
-            value={11.28}
+            value={asset.amount}
             precision={2}
             valueStyle={{ color: asset.grow ? '#3f8600': 'red' }}
             prefix={asset.grow ? <ArrowUpOutlined /> : <ArrowDownOutlined/>}
@@ -62,17 +55,18 @@ if (loading){
           <List
             size="small"
             bordered
-            dataSource={data}
+            dataSource={[
+              {title:'TotalProfit', value:asset.amount},
+            ]}
             renderItem={(item) => (
           <List.Item>
-            <Typography.Text mark>[ITEM]</Typography.Text> {item}
+            <span>{item.title}</span>
+            <span>{item.value}</span>
           </List.Item>
         )}
       />
            </Card>
         ))}
-
-        
      </Layout.Sider>  
     )
 }
