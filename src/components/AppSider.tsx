@@ -19,64 +19,60 @@ const data = [
 
 
 const AppSider:FC = () => {
+
   const [loading,setLoading] = useState<boolean>(false)
+  const [,setCrypto] = useState<ICrypto[]>([])
+  const [assets,setAssets] = useState<IAssets[]>([])
+
 useEffect(()=>{
 async function preload(){
   setLoading(true)
- await fakefetchCrypto()
- await fakeCryptoAssets()
-  setLoading(false)
+  const crypto = await fakefetchCrypto()
+  const assets = await fakeCryptoAssets()
+
+setAssets(assets.map((asset)=>{
+  const coin:any = crypto.find((c)=>c.id === asset.id)
+  return{
+   
+    ...asset
+  }
+}))
+setCrypto(crypto)
+setLoading(false)
 }
 preload()
 },[])
 
 if (loading){
-  return <Spin fullscreen></Spin>
+  return <Spin fullscreen ></Spin>
 }
 
     return(
      <Layout.Sider width="25%" style={siderStyle}>
-        <Card  style={{ width: 400,marginBottom:'10px' }}>
-        <Statistic 
-          title="Active"
-          value={11.28}
-          precision={2}
-          valueStyle={{ color: '#3f8600' }}
-          prefix={<ArrowUpOutlined />}
-          suffix="$"
-        />
-        <List
-          size="small"
-          bordered
-          dataSource={data}
-          renderItem={(item) => (
-        <List.Item>
-          <Typography.Text mark>[ITEM]</Typography.Text> {item}
-        </List.Item>
-      )}
-    />
-         </Card>
+        {assets.map((asset)=>(
+          <Card  style={{ width: 400,marginBottom:'10px' }}>
+          <Statistic 
+            title={asset.id}
+            value={11.28}
+            precision={2}
+            valueStyle={{ color: asset.grow ? '#3f8600': 'red' }}
+            prefix={asset.grow ? <ArrowUpOutlined /> : <ArrowDownOutlined/>}
+            suffix="$"
+          />
+          <List
+            size="small"
+            bordered
+            dataSource={data}
+            renderItem={(item) => (
+          <List.Item>
+            <Typography.Text mark>[ITEM]</Typography.Text> {item}
+          </List.Item>
+        )}
+      />
+           </Card>
+        ))}
 
-         <Card  style={{ width: 400 }}>
-        <Statistic 
-          title="Active"
-          value={11.28}
-          precision={2}
-          valueStyle={{ color: '#cf1322' }}
-          prefix={<ArrowDownOutlined />}
-          suffix="$"
-        />
-        <List
-          size="small"
-          bordered
-          dataSource={data}
-          renderItem={(item) => (
-        <List.Item>
-          <Typography.Text mark>[ITEM]</Typography.Text> {item}
-        </List.Item>
-      )}
-    />
-         </Card>
+        
      </Layout.Sider>  
     )
 }

@@ -22,5 +22,5 @@ export interface IAssets{
     id: string,
     amount: number,
     price: number,
-     
+    grow:boolean
 }
