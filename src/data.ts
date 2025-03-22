@@ -3,7 +3,7 @@ import { IAssets, ICrypto } from "./dataTypes"
 export const cryptoData:ICrypto[] = [
     
       {
-        id: 'bitcoin',
+        id: 'Bitcoin',
         icon: 'https://static.coinstats.app/coins/1650455588819.png',
         name: 'Bitcoin',
         symbol: 'BTC',
@@ -21,7 +21,7 @@ export const cryptoData:ICrypto[] = [
         
       },
       {
-        id: 'ethereum',
+        id: 'Ethereum',
         icon: 'https://static.coinstats.app/coins/1650455629727.png',
         name: 'Ethereum',
         symbol: 'ETH',
@@ -40,7 +40,7 @@ export const cryptoData:ICrypto[] = [
         
       },
       {
-        id: 'tether',
+        id: 'Tether',
         icon: 'https://static.coinstats.app/coins/1650455771843.png',
         name: 'Tether',
         symbol: 'USDT',
@@ -60,7 +60,7 @@ export const cryptoData:ICrypto[] = [
        
       },
       {
-        id: 'binance-coin',
+        id: 'Binance-coin',
         icon: 'https://static.coinstats.app/coins/1666608145347.png',
         name: 'BNB',
         symbol: 'BNB',
@@ -78,84 +78,7 @@ export const cryptoData:ICrypto[] = [
         contractAddress: 'BNB',
        
         
-      },
-      {
-        id: 'solana',
-        icon: 'https://static.coinstats.app/coins/1701234596791.png',
-        name: 'Solana',
-        symbol: 'SOL',
-        rank: 5,
-        price: 93.7035752645126,
-        priceBtc: 0.0020885091157300402,
-        volume: 3591253070.807396,
-        marketCap: 40461063524.96437,
-        availableSupply: 431798503,
-        totalSupply: 566552781,
-        priceChange1h: -0.98,
-        priceChange1d: -2.94,
-        priceChange1w: -11.17,
-       
-        contractAddress: '0x7dff46370e9ea5f0bad3c4e29711ad50062ea7a4',
-        
-        
-      },
-      {
-        id: 'ripple',
-        icon: 'https://static.coinstats.app/coins/XRPdnqGJ.png',
-        name: 'XRP',
-        symbol: 'XRP',
-        rank: 6,
-        price: 0.5629434018448091,
-        priceBtc: 0.000012547145859419824,
-        volume: 1103177305.849332,
-        marketCap: 30517408090.486538,
-        availableSupply: 54210437480,
-        totalSupply: 99988065643,
-        priceChange1h: -0.6,
-        priceChange1d: -1.22,
-        priceChange1w: -9.34,
-       
-        contractAddress: '0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe',
-       
-        
-      },
-      {
-        id: 'usd-coin',
-        icon: 'https://static.coinstats.app/coins/1650455825065.png',
-        name: 'USDC',
-        symbol: 'USDC',
-        rank: 7,
-        price: 1,
-        priceBtc: 0.000022259755933599935,
-        volume: 8964820403,
-        marketCap: 25343872213,
-        availableSupply: 25341702291,
-        totalSupply: 25346562356,
-        priceChange1h: 0.02,
-        priceChange1d: -0.05,
-        priceChange1w: -0.03,
-        contractAddress: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
-        
-      },
-      {
-        id: 'staked-ether',
-        icon: 'https://static.coinstats.app/coins/staked-etheruqt.png',
-        name: 'Lido Staked Ether',
-        symbol: 'STETH',
-        rank: 8,
-        price: 2263.48,
-        priceBtc: 0.05038451236058478,
-        volume: 12583680,
-        marketCap: 20949523852,
-        availableSupply: 9253636,
-        totalSupply: 9253636,
-        priceChange1h: -0.06,
-        priceChange1d: 0.54,
-        priceChange1w: -1.67,
-        contractAddress: '0xae7ab96520de3a18e5e111b5eaab095312d7fe84',
-        
-        
-      },
+      }
     ]
     
   
